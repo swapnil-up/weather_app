@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/providers/favorites_provider.dart';
+import 'package:weather_app/providers/location_provider.dart';
 import 'package:weather_app/providers/weather_provider.dart';
 import 'package:weather_app/screens/home_screen.dart';
 
@@ -12,6 +14,12 @@ void main() async {
         ChangeNotifierProvider(
           create: (_) => WeatherProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => LocationProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => FavoritesProvider(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -21,7 +29,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
