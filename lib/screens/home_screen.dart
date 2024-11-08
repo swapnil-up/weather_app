@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/providers/favorites_provider.dart';
 import 'package:weather_app/providers/location_provider.dart';
+import 'package:weather_app/providers/search_history_provider.dart';
 import 'package:weather_app/screens/favorites_screen.dart';
 import '../providers/weather_provider.dart';
 
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
     final weatherProvider = Provider.of<WeatherProvider>(context);
     final locationProvider = Provider.of<LocationProvider>(context);
     final favoritesProvider = Provider.of<FavoritesProvider>(context);
+    final searchHistoryProvider = Provider.of<SearchHistoryProvider>(context);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Weather App")),
@@ -50,9 +52,36 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 16,
+            ),
+            Row(
+              children: [
+                const Text('Recent Searches:'),
+                ElevatedButton(
+                  onPressed: () {
+                    searchHistoryProvider.removeFavoriteCity();
+                  },
+                  child: const Text('Clear recents'),
+                ),
+              ],
+            ),
+            Expanded(
+              child: ListView(
+                children: searchHistoryProvider.searchHistory.map((city) {
+                  return ListTile(
+                    title: Text(city),
+                    onTap: () {
+                      weatherProvider.getWeather(city);
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
             ElevatedButton(
               onPressed: () {
                 locationProvider.setCity(_cityController.text);
+                searchHistoryProvider.addSearchCity(_cityController.text);
                 weatherProvider.getWeather(_cityController.text);
               },
               child: const Text("Get Weather"),

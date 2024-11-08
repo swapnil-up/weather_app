@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/providers/favorites_provider.dart';
 import 'package:weather_app/providers/location_provider.dart';
+import 'package:weather_app/providers/search_history_provider.dart';
 import 'package:weather_app/providers/weather_provider.dart';
 import 'package:weather_app/screens/home_screen.dart';
 
@@ -19,6 +20,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => FavoritesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SearchHistoryProvider(),
         ),
       ],
       child: const MyApp(),
