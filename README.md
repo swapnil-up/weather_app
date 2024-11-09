@@ -24,7 +24,7 @@ A weather app that connects to [weatherapi](https://www.weatherapi.com/) and ret
 
 ### App Demo GIF:
 	
-![Weather App Demo](assets/weather_app_demo.gif)
+![Weather App Demo](github_assets/weather_app_demo.gif)
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
