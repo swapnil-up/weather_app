@@ -1,16 +1,30 @@
 # weather_app
 
-A new Flutter project.
+A weather app that connects to [weatherapi](https://www.weatherapi.com/) and retrieves the data. 
 
-## Getting Started
+### Features
 
-This project is a starting point for a Flutter application.
+- Option to add to, remove from and see all favorites. 
+- A recent search result history shown in the main app that can be cleared as needed. 
+- Temperature and description of the location queried.
 
-A few resources to get you started if this is your first Flutter project:
+### Technologies Used:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter 
+- http: ^1.2.2
+- provider: ^6.1.2
+- flutter_dotenv: ^5.2.1
+- shared_preferences: ^2.2.3
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Setup Instructions:
+	
+1. Clone the repository: `git clone https://github.com/swapnil-up/weather_app.git`
+2. Install dependencies: `flutter pub get`
+3. Run the app: `flutter run`
+
+### App Demo GIF:
+	
+![Weather App Demo](assets/weather_app_demo.gif)
+
+### License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
