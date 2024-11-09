@@ -22,9 +22,14 @@ void main() async {
           create: (_) => FavoritesProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => SearchHistoryProvider(),
+          create: (_) { 
+          final searchHistoryProvider=SearchHistoryProvider();
+          searchHistoryProvider.loadSearchHistory();
+          return searchHistoryProvider;
+          },
         ),
       ],
+      
       child: const MyApp(),
     ),
   );
